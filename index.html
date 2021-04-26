@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Neander</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="instructions table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Address</th>
+              <th>Value</th>
+              <th>Mnemonics</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <form class="add add-instruction">
+          <input type="text" name="address" placeholder="Address" value="0" />
+          <input type="text" name="value" placeholder="Value" value="0" />
+          <button type="submit">SET</button>
+        </form>
+      </div>
+
+      <div class="info">
+        <div class="values">
+          <div>AC: <span>0</span></div>
+          <div>PC: <span>0</span></div>
+        </div>
+        <div class="flags">
+          <div class="n flag">NEGATIVE</div>
+          <div class="z flag">ZERO</div>
+        </div>
+        <div class="controls">
+          <div class="running">
+            <button id="run">RUN</button>
+            <button id="step">STEP</button>
+          </div>
+          <div class="resetting">
+            <button id="reset">RESET</button>
+            <button id="hard-reset">HARD RESET</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="data table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Address</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <form class="add add-data">
+          <input type="text" name="address" placeholder="Address" value="128" />
+          <input type="text" name="value" placeholder="Value" value="0" />
+          <button type="submit">SET</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./utils.js"></script>
+    <script src="./CPU.js"></script>
+    <script src="./UI.js"></script>
+    <script></script>
+  </body>
+</html>
