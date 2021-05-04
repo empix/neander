@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      textarea {
+        width: 250px;
+        height: 500px;
+        font-size: 1.2em;
+        padding: 8px;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea></textarea>
+    <button>Convert</button>
+
+    <script>
+      /* MNEMONIC: [opcode, bytes] */
+      const mnemonics = {
+        NOP: [0, 1],
+        STA: [16, 2],
+        LDA: [32, 2],
+        ADD: [48, 2],
+        OR: [64, 0],
+        AND: [80, 0],
+        NOT: [96, 1],
+        JMP: [128, 2],
+        JN: [144, 2],
+        JZ: [160, 2],
+        HLT: [240, 1],
+      };
+
+      const textarea = document.querySelector("textarea");
+
+      document.querySelector("button").addEventListener("click", () => {
+        const instructions = textarea.value
+          .replace(/\s+/g, " ")
+          .trim()
+          .toUpperCase()
+          .split(" ");
+
+        decodeInstructions(instructions);
+      });
+
+      function decodeInstructions(instructions) {
+        const result = [];
+
+        for (let i = 0; i < instructions.length; i++) {
+          const [opcode, bytes] = mnemonics[instructions[i]] || [0, 0];
+
+          if (!opcode) {
+            throw new Error(`Invalid mnemonic: ${instructions[i]}`);
+          }
+
+          result[i] = opcode;
+          if (bytes === 2) {
+            if (isNaN(instructions[i + 1])) {
+              throw new Error(`Invalid memory address: ${instructions[i + 1]}`);
+            }
+
+            result[++i] = parseInt(instructions[i]);
+          }
+        }
+
+        console.log(result);
+      }
+    </script>
+  </body>
+</html>
