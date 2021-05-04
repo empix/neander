@@ -80,7 +80,7 @@ table::-webkit-scrollbar-thumb {
   background: var(--color4);
 }
 
-tr.pc {
+tr.current-pc {
   background: #316dca;
   color: #cdd9e5;
 }
@@ -150,7 +150,7 @@ tr.pc {
   gap: 10px;
 }
 
-.values {
+.registers {
   display: flex;
   width: 100%;
   gap: 10px;
@@ -159,7 +159,7 @@ tr.pc {
   align-items: center;
 }
 
-.values div {
+.registers div {
   background-color: var(--color2);
   font-size: 1.2em;
   font-weight: bold;
@@ -171,7 +171,7 @@ tr.pc {
   width: 100%;
 }
 
-.values div span {
+.registers div span {
   background-color: var(--color1);
   padding: 8px;
   font-weight: normal;

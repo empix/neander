@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -30,9 +30,9 @@
       </div>
 
       <div class="info">
-        <div class="values">
-          <div>AC: <span>0</span></div>
-          <div>PC: <span>0</span></div>
+        <div class="registers">
+          <div class="ac">AC: <span>0</span></div>
+          <div class="pc">PC: <span>0</span></div>
         </div>
         <div class="flags">
           <div class="n flag">NEGATIVE</div>
@@ -68,9 +68,11 @@
       </div>
     </div>
 
-    <script src="./utils.js"></script>
-    <script src="./CPU.js"></script>
-    <script src="./UI.js"></script>
-    <script></script>
+    <script src="./scripts/utils.js"></script>
+    <script src="./scripts/instructions.js"></script>
+    <script src="./scripts/Memory.js"></script>
+    <script src="./scripts/CPU.js"></script>
+    <script src="./scripts/UI.js"></script>
+    <script src="./scripts/neander.js"></script>
   </body>
 </html>
