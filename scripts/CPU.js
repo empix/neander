@@ -56,8 +56,8 @@ class CPU {
   }
 
   hardReset() {
-    this.reset();
     this.memory.clear();
+    hardResetUI();
   }
 
   step() {

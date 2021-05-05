@@ -17,8 +17,11 @@ class Memory {
     this._values[address] = value;
   }
 
-  clear() {
-    this._values.fill(0);
+  clear(start, end) {
+    start = start || 0;
+    end = end + 1 || this._values.length;
+
+    this._values.fill(0, start, end);
   }
 
   verifyAddress(address) {

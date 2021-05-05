@@ -76,6 +76,12 @@ class UI {
     elementRegisters.PC.innerText = PC;
   }
 
+  resetMemory(memory, mnemonics) {
+    for (let i = 0; i < 256; i++) {
+      this.updateMemoryRow(i, memory, mnemonics);
+    }
+  }
+
   updateMemoryRow(address, memory, mnemonics) {
     const memoryValue = memory.read(address);
 

@@ -9,6 +9,7 @@ const instructions = {
     console.log(`STA ${address}`); // Print instruction
     CPU.memory.write(address, CPU.AC);
     CPU.PC += 2;
+    interface.updateMemoryRow(address, CPU.memory, CPU.mnemonics);
   },
 
   LDA(CPU) {
