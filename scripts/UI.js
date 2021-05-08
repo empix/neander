@@ -1,6 +1,10 @@
 const elementTables = {
-  instructions: document.querySelector(".instructions tbody"),
-  data: document.querySelector(".data tbody"),
+  instructions: document.querySelector(".instructions table"),
+  data: document.querySelector(".data table"),
+};
+const elementForms = {
+  instructions: document.querySelector(".add-instruction"),
+  data: document.querySelector(".add-data"),
 };
 const elementFlags = {
   negativeFlag: document.querySelector(".n.flag"),
@@ -31,14 +35,32 @@ class UI {
       neander.step();
     });
 
-    document
-      .querySelector(".add-instruction")
-      .addEventListener("submit", (e) => {
-        this.addInstruction(e, neander.memory, neander.mnemonics);
-      });
-    document.querySelector(".add-data").addEventListener("submit", (e) => {
+    elementForms.instructions.addEventListener("submit", (e) => {
+      this.addInstruction(e, neander.memory, neander.mnemonics);
+    });
+    elementForms.data.addEventListener("submit", (e) => {
       this.addData(e, neander.memory, neander.mnemonics);
     });
+
+    elementTables.instructions.addEventListener("click", ({ path }) => {
+      this.handleRowClick(elementForms.instructions, path[1]);
+    });
+
+    elementTables.data.addEventListener("click", ({ path }) => {
+      this.handleRowClick(elementForms.data, path[1]);
+    });
+  }
+
+  handleRowClick(form, row) {
+    if (row?.nodeName != "TR") return;
+
+    const [addressInput, valueInput] = form;
+    const addressValue = row.children[1].innerText;
+
+    addressInput.value = row.dataset.address;
+    valueInput.value = addressValue;
+    valueInput.focus();
+    valueInput.select();
   }
 
   startTables(memory, mnemonics) {
@@ -46,16 +68,16 @@ class UI {
       const value = memory.read(i);
 
       if (i < 128) {
-        elementTables.instructions.innerHTML += `
-              <tr>
+        elementTables.instructions.tBodies[0].innerHTML += `
+              <tr data-address="${i}">
                 <td>${i}</td>
                 <td>${value}</td>
                 <td>${mnemonics[value] || "---"}</td>
               </tr>
             `;
       } else {
-        elementTables.data.innerHTML += `
-              <tr>
+        elementTables.data.tBodies[0].innerHTML += `
+              <tr data-address="${i}">
                 <td>${i}</td>
                 <td>${value}</td>
               </tr>
