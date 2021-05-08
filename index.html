@@ -29,8 +29,26 @@
           <tbody></tbody>
         </table>
         <form class="add add-instruction">
-          <input type="text" name="address" placeholder="Address" value="0" />
-          <input type="text" name="value" placeholder="Value" value="0" />
+          <div>
+            <label for="instruction-address">ADDR</label>
+            <input
+              type="text"
+              name="address"
+              id="instruction-address"
+              placeholder="Address"
+              value="128"
+            />
+          </div>
+          <div>
+            <label for="instruction-value">VALUE</label>
+            <input
+              type="text"
+              name="value"
+              id="instruction-value"
+              placeholder="Value"
+              value="0"
+            />
+          </div>
           <button type="submit">SET</button>
         </form>
       </div>
@@ -71,8 +89,26 @@
           <tbody></tbody>
         </table>
         <form class="add add-data">
-          <input type="text" name="address" placeholder="Address" value="128" />
-          <input type="text" name="value" placeholder="Value" value="0" />
+          <div>
+            <label for="data-address">ADDR</label>
+            <input
+              type="text"
+              name="address"
+              id="data-address"
+              placeholder="Address"
+              value="128"
+            />
+          </div>
+          <div>
+            <label for="data-value">VALUE</label>
+            <input
+              type="text"
+              name="value"
+              id="data-value"
+              placeholder="Value"
+              value="0"
+            />
+          </div>
           <button type="submit">SET</button>
         </form>
       </div>

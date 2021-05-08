@@ -14,7 +14,7 @@
   margin: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: "Fira Code", sans-serif;
+  font-family: sans-serif;
 }
 
 body {
@@ -85,6 +85,16 @@ tr.current-pc {
   color: #cdd9e5;
 }
 
+tr {
+  cursor: pointer;
+}
+
+tr:hover {
+  background-color: #9f31ca;
+  color: #cdd9e5;
+  font-weight: bold;
+}
+
 /* Wrapper */
 .wrapper {
   display: flex;
@@ -109,6 +119,22 @@ tr.current-pc {
   display: flex;
   width: 100%;
   flex-direction: column;
+}
+
+.add div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add div label {
+  padding: 8px;
+  border: 1px solid var(--color4);
+  background-color: var(--color1);
+  color: var(--color4);
+  border-bottom: 0;
+  border-right: 0;
+  font-size: 14px;
 }
 
 .add input {
