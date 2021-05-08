@@ -42,9 +42,21 @@ const instructions = {
     CPU.PC = address;
   },
 
-  JN(CPU) {},
+  JN(CPU) {
+    if (CPU.N < 0) {
+      const address = CPU.memory.read(CPU.nextAddress);
+      console.log(`JN ${address}`); // Print instruction
+      CPU.PC = address;
+    }
+  },
 
-  JZ(CPU) {},
+  JZ(CPU) {
+    if (CPU.Z == 0) {
+      const address = CPU.memory.read(CPU.nextAddress);
+      console.log(`JZ ${address}`); // Print instruction
+      CPU.PC = address;
+    }
+  },
 
   HLT(CPU) {
     console.log(`HLT`); // Print instruction
