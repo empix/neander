@@ -24,6 +24,7 @@ const editor = CodeMirror.fromTextArea(textarea, {
   styleActiveLine: true,
   placeholder: "Write assembly here",
   theme: "dracula",
+  lineNumberFormatter: (line) => line - 1,
 });
 
 /* MNEMONIC: [opcode, bytes] */
